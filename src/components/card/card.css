@@ -1,0 +1,17 @@
+.hha-pokerhand-card-value,
+.hha-pokerhand-card-suit {
+  font-family: verdana;
+  font-size: 13px;
+}
+.hha-pokerhand-card-suit {
+  margin-right: 2px;
+  font-size: 15px;
+}
+.hha-pokerhand-card-suit.s,
+.hha-pokerhand-card-suit.c {
+  color: black;
+}
+.hha-pokerhand-card-suit.d,
+.hha-pokerhand-card-suit.h {
+  color: red;
+}

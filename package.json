@@ -1,0 +1,34 @@
+{
+  "name": "hha-pokerhand",
+  "version": "1.0.0",
+  "description": "Visualizes pokerhand analyzed with hha.",
+  "main": "hha-pokerhand.js",
+  "main.css": "./src/components/pokerhand/pokerhand.css",
+  "pokerhand.css": "./src/components/pokerhand/pokerhand.css",
+  "board.css": "./src/components/board/board.css",
+  "card.css": "./src/components/card/card.css",
+  "scripts": {
+    "test": "standart"
+  },
+  "author": "Thorsten Lorenz <thlorenz@gmx.de>",
+  "license": "MIT",
+  "browserify": {
+    "transform": [
+      [
+        "bubleify",
+        {
+          "jsx": "h"
+        }
+      ]
+    ]
+  },
+  "dependencies": {
+    "preact": "~7.1.0"
+  },
+  "devDependencies": {
+    "browserify": "~13.0.0",
+    "bubleify": "~0.6.0",
+    "budo": "~9.2.2",
+    "standart": "~6.1.0"
+  }
+}

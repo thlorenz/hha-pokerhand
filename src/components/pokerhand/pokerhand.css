@@ -1,0 +1,59 @@
+@import '../board/board.css';
+@import '../card/card.css';
+
+.hha-pokerhand-hand {
+  width: 700px;
+  background: #333;
+  border: 1px solid #333;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 6px 6px 12px #888;
+  margin: 5px;
+  line-height: normal;
+}
+.hha-pokerhand-header {
+  color: yellowgreen;
+  height: 20px;
+  padding: 2px;
+  font-family: monospace;
+}
+.hha-pokerhand-table {
+  background: white;
+  font-family: Inconsolata, monospace;
+}
+.hha-pokerhand-table table {
+  border-spacing: 0;
+}
+
+.hha-pokerhand-table th {
+  text-align: left;
+  font-size: 13px;
+}
+
+.hha-pokerhand-table td {
+  text-align: left;
+  padding: 0px 10px 0px 2px;
+  white-space: pre;
+  font-size: 13px;
+}
+.hha-pokerhand-table,
+.hha-pokerhand-card-value,
+.hha-pokerhand-table,
+.hha-pokerhand-card-suit {
+  font-size: 13px;
+}
+
+.hha-pokerhand-table td:nth-child(1) { width: 10px; }
+.hha-pokerhand-table td:nth-child(2) { width: 100px; }
+.hha-pokerhand-table td:nth-child(3) { width: 30px; }
+.hha-pokerhand-table td:nth-child(4) { width: 10px; text-align: right;}
+.hha-pokerhand-table td:nth-child(5) { width: 100px; }
+.hha-pokerhand-table td:nth-child(6) { width: 100px; }
+.hha-pokerhand-table td:nth-child(7) { width: 100px; }
+.hha-pokerhand-table td:nth-child(8) { width: 100px; }
+
+/* override changes done by CSS normalizers like tachyon.css */
+div.hha-pokerhand-hand,
+div.hha-pokerhand-header, 
+div.hha-pokerhand-table {
+  box-sizing: content-box;
+}
