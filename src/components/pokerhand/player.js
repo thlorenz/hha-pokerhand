@@ -22,6 +22,7 @@ function renderStreet(actions, indent) {
   let s = indent ? '_____ ' : ''
   for (let i = 0; i < actions.length; i++) {
     const a = actions[i]
+    if (a.type === 'bet-returned') continue
     s +=  shortenActionType(a.type) + ' '
         + (a.hasOwnProperty('ratio')
             ? oneDecimal(a.ratio)
