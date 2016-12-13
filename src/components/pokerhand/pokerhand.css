@@ -9,6 +9,7 @@
   box-shadow: 6px 6px 12px #888;
   margin: 5px;
   line-height: normal;
+  cursor: pointer;
 }
 .hha-pokerhand-header {
   color: yellowgreen;

@@ -31,7 +31,7 @@ class PokerHand extends Component {
     const players = (hand.players || []).map(toPlayer)
 
     return (
-      <div className='hha-pokerhand-hand'>
+      <div className='hha-pokerhand-hand' onclick={() => this._onclicked()}>
         <Head
           ante={info.ante}
           gametype={info.gametype}
@@ -70,6 +70,11 @@ class PokerHand extends Component {
         </div>
       </div>
     )
+  }
+
+  _onclicked() {
+    const { hand, onselected } = this.props
+    if (typeof onselected === 'function') onselected(hand)
   }
 }
 
