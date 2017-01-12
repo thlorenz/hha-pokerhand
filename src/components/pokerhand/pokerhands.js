@@ -11,8 +11,16 @@ class PokerHands {
   }
 
   _toHand(x, idx) {
-    const { onhandSelected } = this.props
-    return <PokerHand hand={x} key={idx} onselected={onhandSelected} />
+    const { onhandSelected, injectHeader, injectFooter } = this.props
+    return (
+      <PokerHand
+        hand={x}
+        key={idx}
+        onselected={onhandSelected}
+        injectHeader={injectHeader}
+        injectFooter={injectFooter}
+      />
+    )
   }
 }
 
