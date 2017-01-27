@@ -1,10 +1,8 @@
-'use strict'
-
-/** @jsx h */
-const { h } = require('preact')
+const React = require('react')
+const { Component } = React
 const PokerHand = require('./pokerhand')
 
-class PokerHands {
+class PokerHands extends Component {
   render() {
     const { hands } = this.props
     return <div>{(hands || []).map(this._toHand, this)}</div>

@@ -1,7 +1,5 @@
-'use strict'
-
-/** @jsx h */
-const { h, Component } = require('preact')
+const React = require('react')
+const { Component } = React
 
 const Board = require('../board/board')
 const HeadTime = require('./head-time')

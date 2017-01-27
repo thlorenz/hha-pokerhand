@@ -1,7 +1,5 @@
-'use strict'
-
-/** @jsx h */
-const { h, Component } = require('preact')
+const React = require('react')
+const { Component } = React
 
 function twoDigits(n) {
   return ('0' + n).slice(-2)

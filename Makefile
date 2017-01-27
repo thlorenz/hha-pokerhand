@@ -7,10 +7,10 @@ ENTRY=src/client.js
 CSS=--css src/index.css
 
 watch:
-	$(BUDO) $(ENTRY) --live $(CSS) -- -d
+	$(BUDO) $(ENTRY) $(CSS) -- -d -p livereactload
 
 watch-noreload:
 	$(BUDO) $(ENTRY) $(CSS) -- -d
 
 watch-raw:
-	$(BUDO) $(ENTRY) --live $(CSS)
+	$(BUDO) $(ENTRY) $(CSS) -- -p livereactload

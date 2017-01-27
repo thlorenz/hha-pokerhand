@@ -12,23 +12,30 @@
   },
   "author": "Thorsten Lorenz <thlorenz@gmx.de>",
   "license": "MIT",
+  "browser": {
+    "// comment the browser field to use react": "",
+    "react": "preact-compat",
+    "react-dom": "preact-compat"
+  },
   "browserify": {
     "transform": [
       [
         "bubleify",
-        {
-          "jsx": "h"
-        }
+        {}
       ]
     ]
   },
   "dependencies": {
-    "preact": "~7.1.0"
+    "preact": "~7.1.0",
+    "preact-compat": "~3.11.0"
   },
   "devDependencies": {
     "browserify": "~13.0.0",
     "bubleify": "~0.6.0",
     "budo": "~9.2.2",
+    "livereactload": "~3.2.0",
+    "react": "~15.4.2",
+    "react-dom": "~15.4.2",
     "standart": "~6.1.0"
   }
 }

@@ -1,7 +1,5 @@
-'use strict'
-
-/** @jsx h */
-const { h, Component } = require('preact')
+const React = require('react')
+const { Component } = React
 const Card = require('../card/card')
 
 function oneDecimal(x) {
