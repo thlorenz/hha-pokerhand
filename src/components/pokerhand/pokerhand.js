@@ -23,7 +23,7 @@ function toPlayer(x, idx) {
 
 class PokerHand extends Component {
   render() {
-    const { hand } = this.props
+    const { hand, className = '' } = this.props
     const info = hand.info || {}
     const table = hand.table || {}
     const players = (hand.players || []).map(toPlayer)
@@ -34,7 +34,7 @@ class PokerHand extends Component {
     return (
       <div>
         {header}
-        <div className='hha-pokerhand-hand' onclick={() => this._onclicked()}>
+        <div className={'hha-pokerhand-hand ' + className} onClick={() => this._onclicked()}>
           <Head
             ante={info.ante}
             gametype={info.gametype}
