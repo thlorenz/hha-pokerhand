@@ -12,7 +12,7 @@
   },
   "author": "Thorsten Lorenz <thlorenz@gmx.de>",
   "license": "MIT",
-  "browser": {
+  "//browser": {
     "// comment the browser field to use react": "",
     "react": "preact-compat",
     "react-dom": "preact-compat"
