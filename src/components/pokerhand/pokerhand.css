@@ -11,6 +11,9 @@
   line-height: normal;
   cursor: pointer;
 }
+.hha-pokerhand-hand.selected  .hha-pokerhand-table {
+  background: antiquewhite;
+}
 .hha-pokerhand-header {
   color: yellowgreen;
   height: 20px;
