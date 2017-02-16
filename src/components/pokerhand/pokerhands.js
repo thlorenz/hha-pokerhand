@@ -23,10 +23,11 @@ class PokerHands extends Component {
       ? 'selected'
       : ''
 
+    const key = (x.info && x.info.handid) || idx
     return (
       <PokerHand
         hand={x}
-        key={idx}
+        key={key}
         ref={el => (this._pokerHands[idx] = el)}
         onselected={(hand, component) => this._onhandSelected(hand, component, idx)}
         injectHeader={injectHeader}
