@@ -7,10 +7,10 @@ function twoDigits(n) {
 
 class HeadTime extends Component {
   render() {
-    const { hour, min, sec } = this.props
+    const { hour, min, sec, className = '' } = this.props
     if (!hour || !min || !sec) return <span />
     return (
-      <span>
+      <span className={className}>
         {twoDigits(hour)}:{twoDigits(min)}:{twoDigits(sec)}
       </span>
     )

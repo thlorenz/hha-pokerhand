@@ -1,4 +1,3 @@
-@import '../board/board.css';
 @import '../card/card.css';
 
 .hha-pokerhand-hand {
@@ -46,18 +45,47 @@
   font-size: 13px;
 }
 
-.hha-pokerhand-table td:nth-child(1) { width: 10px; }
-.hha-pokerhand-table td:nth-child(2) { width: 100px; }
-.hha-pokerhand-table td:nth-child(3) { width: 30px; }
-.hha-pokerhand-table td:nth-child(4) { width: 10px; text-align: right;}
-.hha-pokerhand-table td:nth-child(5) { width: 100px; }
-.hha-pokerhand-table td:nth-child(6) { width: 100px; }
-.hha-pokerhand-table td:nth-child(7) { width: 100px; }
-.hha-pokerhand-table td:nth-child(8) { width: 100px; }
+.hha-pokerhand-table td:nth-child(1) { width: 10px; }   /* Position */
+.hha-pokerhand-table td:nth-child(2) { width: 100px; }  /* Name */
+.hha-pokerhand-table td:nth-child(3) { width: 10px; text-align: right;} /* M/BB */
+.hha-pokerhand-table td:nth-child(4) { width: 30px; }   /* Cards */
+.hha-pokerhand-table td:nth-child(5) { width: 100px; }  /* Preflop */
+.hha-pokerhand-table td:nth-child(6) { width: 100px; }  /* Flop */
+.hha-pokerhand-table td:nth-child(7) { width: 100px; }  /* Turn */
+.hha-pokerhand-table td:nth-child(8) { width: 100px; }  /* River */
+
+/*
+.hha-pokerhand-table tr:nth-child(even) {
+  background: #ddd;
+}
+*/
 
 /* override changes done by CSS normalizers like tachyon.css */
 div.hha-pokerhand-hand,
 div.hha-pokerhand-header, 
 div.hha-pokerhand-table {
   box-sizing: content-box;
+}
+
+.hha-pokerhand-header .fr {
+  float: right;
+  margin-right: 4px;
+}
+
+.hha-pokerhand-win {
+  margin-left: 4px;
+}
+.hha-pokerhand-win.down {
+  color: orangered;
+}
+
+.hha-pokerhand-win.up {
+  color: lightblue;
+}
+
+.hha-pokerhand-board {
+  height: 20px;
+  color: black;
+  padding: 1px 0 1px 0;
+  white-space: pre;
 }

@@ -52,11 +52,11 @@ class Player extends Component {
       <tr className='hha-pokerhand-player'>
         <td>{pos}</td>
         <td>{name}</td>
+        <td>{m}</td>
         <td>
           <Card card={card1} empty='' />
           <Card card={card2} empty='' />
         </td>
-        <td>{m}</td>
         <td>{preflop}</td>
         <td>{flop}</td>
         <td>{turn}</td>

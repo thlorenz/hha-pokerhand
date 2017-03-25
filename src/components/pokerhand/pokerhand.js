@@ -1,6 +1,7 @@
 const React = require('react')
 const { Component } = React
 const Head = require('./head')
+const Card = require('../card/card')
 const Player = require('./player')
 
 function toPlayer(x, idx) {
@@ -21,11 +22,49 @@ function toPlayer(x, idx) {
   )
 }
 
+function renderFlop(cards) {
+  const { card1, card2, card3 } = (cards || {})
+  return (
+    <span className='hha-pokerhand-board'>
+      <Card card={card1} />
+      <Card card={card2} />
+      <Card card={card3} />
+    </span>
+  )
+}
+
+function renderTurn(cards) {
+  const { card4 } = (cards || {})
+  return (
+    <span className='hha-pokerhand-board'>
+      <Card card={card4} />
+    </span>
+  )
+}
+
+function renderRiver(cards) {
+  const { card5 } = (cards || {})
+  return (
+    <span className='hha-pokerhand-board'>
+      <Card card={card5} />
+    </span>
+  )
+}
+
+function determineWin(players) {
+  for (var i = 0; i < players.length; i++) {
+    const p = players[i]
+    if (p.hero) return p.chipsAfter - p.chips
+  }
+  return 0
+}
+
 class PokerHand extends Component {
   render() {
     const { hand, className = '' } = this.props
     const info = hand.info || {}
     const table = hand.table || {}
+    const win = determineWin(hand.players)
     const players = (hand.players || []).map(toPlayer)
 
     const header = this._injectHeader()
@@ -50,7 +89,8 @@ class PokerHand extends Component {
             maxseats={table.maxseats}
             board={hand.board}
             bb={info.bb}
-            sb={info.sb} />
+            sb={info.sb}
+            win={win} />
 
           <div className='hha-pokerhand-table'>
             <table>
@@ -58,12 +98,24 @@ class PokerHand extends Component {
                 <tr>
                   <th>Pos</th>
                   <th>Name</th>
-                  <th>Cards</th>
                   <th>M</th>
+                  <th>Cards</th>
                   <th>Preflop</th>
                   <th>Flop</th>
                   <th>Turn</th>
                   <th>River</th>
+                </tr>
+              </thead>
+              <thead>
+                <tr>
+                  <td />
+                  <td />
+                  <td />
+                  <td />
+                  <td />
+                  <td>{renderFlop(hand.board)}</td>
+                  <td>{renderTurn(hand.board)}</td>
+                  <td>{renderRiver(hand.board)}</td>
                 </tr>
               </thead>
               <tbody>
@@ -91,7 +143,6 @@ class PokerHand extends Component {
     const { hand, onselected } = this.props
     if (typeof onselected === 'function') onselected(hand, this)
   }
-
 }
 
 module.exports = PokerHand

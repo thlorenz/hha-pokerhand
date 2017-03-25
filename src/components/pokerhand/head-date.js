@@ -7,10 +7,10 @@ function twoDigits(n) {
 
 class HeadDate extends Component {
   render() {
-  const { day, month, year } = this.props
+  const { day, month, year, className = '' } = this.props
     if (!year || !month || !day) return <span />
     return (
-      <span>
+      <span className={className}>
         {twoDigits(month)}/{twoDigits(day)}/{year}
       </span>
     )
