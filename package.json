@@ -1,6 +1,6 @@
 {
   "name": "hha-pokerhand",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Visualizes pokerhand analyzed with hha.",
   "main": "hha-pokerhand.js",
   "main.css": "./src/components/pokerhand/pokerhand.css",
