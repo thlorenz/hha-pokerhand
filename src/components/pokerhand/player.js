@@ -31,13 +31,15 @@ function renderStreet(actions, indent) {
   return s.trim()
 }
 
+/* eslint-disable camelcase */
 class Player extends Component {
   render() {
     const {
       name
     , bb, sb
     , cards
-    , m } = this.props
+    , m_or_bb
+    } = this.props
 
     const card1    = cards && cards.card1
     const card2    = cards && cards.card2
@@ -52,7 +54,7 @@ class Player extends Component {
       <tr className='hha-pokerhand-player'>
         <td>{pos}</td>
         <td>{name}</td>
-        <td>{m}</td>
+        <td>{m_or_bb}</td>
         <td>
           <Card card={card1} empty='' />
           <Card card={card2} empty='' />

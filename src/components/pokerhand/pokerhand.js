@@ -4,14 +4,17 @@ const Head = require('./head')
 const Card = require('../card/card')
 const Player = require('./player')
 
+/* eslint-disable camelcase */
 function toPlayer(x, idx) {
+  const { tourney, bb } = this
+  const m_or_bb = tourney ? x.m : (x.chips / bb).toFixed(0)
   return (
     <Player
       name={x.name}
       bb={x.bb}
       sb={x.sb}
+      m_or_bb={m_or_bb}
       cards={x.cards}
-      m={x.m}
       pos={x.pos}
       preflop={x.preflop}
       flop={x.flop}
@@ -65,7 +68,10 @@ class PokerHand extends Component {
     const info = hand.info || {}
     const table = hand.table || {}
     const win = determineWin(hand.players)
-    const players = (hand.players || []).map(toPlayer)
+    const tourney = info.gametype === 'tournament'
+    const bb = info.bb
+    const decimals = bb < 1 ? 2 : 0
+    const players = (hand.players || []).map(toPlayer, { tourney, bb })
 
     const header = this._injectHeader()
     const footer = this._injectFooter()
@@ -79,7 +85,7 @@ class PokerHand extends Component {
             gametype={info.gametype}
             handid={info.handid}
             gameid={info.gameid}
-            gameno={info.gameno}
+            gameno={info.gameno || table.tableno}
             year={info.year}
             month={info.month}
             day={info.day}
@@ -90,6 +96,7 @@ class PokerHand extends Component {
             board={hand.board}
             bb={info.bb}
             sb={info.sb}
+            decimals={decimals}
             win={win} />
 
           <div className='hha-pokerhand-table'>
@@ -98,7 +105,7 @@ class PokerHand extends Component {
                 <tr>
                   <th>Pos</th>
                   <th>Name</th>
-                  <th>M</th>
+                  <th>{tourney ? 'M' : 'BB'}</th>
                   <th>Cards</th>
                   <th>Preflop</th>
                   <th>Flop</th>

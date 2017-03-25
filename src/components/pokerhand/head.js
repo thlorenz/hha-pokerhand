@@ -4,7 +4,7 @@ const { Component } = React
 const HeadTime = require('./head-time')
 const HeadDate = require('./head-date')
 
-function renderWin(win, bb, ante) {
+function renderWin(win, bb, ante, decimals) {
   if (isNaN(ante)) ante = 0
   const bigWin = Math.abs(win) > (bb + ante)
   const winIndicator = (
@@ -18,8 +18,6 @@ function renderWin(win, bb, ante) {
     : win > 0 && bigWin ? 'up'
     : ''
   )
-
-  const decimals = bb < 1 ? 2 : 0
 
   return (
     <span className={'hha-pokerhand-win fr ' + className}>
@@ -36,7 +34,7 @@ class Head extends Component {
     , year, month, day
     , hour, min, sec
     , gametype, gameno, handid
-    , win } = this.props
+    , win, decimals } = this.props
 
     const space = ' '
     return (
@@ -44,7 +42,7 @@ class Head extends Component {
         <span className='hha-pokerhand-bb-sb-ante-max'>
           ({bb}/{sb}) {ante && '(' + ante + ')'} [{maxseats}]
         </span>
-        {renderWin(win, bb, ante)}
+        {renderWin(win, bb, ante, decimals)}
         <span className='fr'>
           {gametype === 'tournament' ? 'T' : 'C'}: {gameno} G: {handid}
         </span>
