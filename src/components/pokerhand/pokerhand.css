@@ -75,6 +75,12 @@ div.hha-pokerhand-table {
 .hha-pokerhand-win {
   margin-left: 4px;
 }
+.hha-pokerhand-win .bb-amount {
+  font-size: 13px;
+}
+.hha-pokerhand-win .bb-label {
+  font-size: 9px;
+}
 .hha-pokerhand-win.down {
   color: orangered;
 }

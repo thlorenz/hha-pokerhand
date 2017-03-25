@@ -4,9 +4,18 @@ const { Component } = React
 const HeadTime = require('./head-time')
 const HeadDate = require('./head-date')
 
+function renderBigBlind(winInBB) {
+  return (
+    <span className='bb-amount'>
+      {Math.round(winInBB)}<span className='bb-label'>BB</span>
+    </span>
+  )
+}
+
 function renderWin(win, bb, ante, decimals) {
   if (isNaN(ante)) ante = 0
-  const bigWin = Math.abs(win) > (bb + ante)
+  const abs = Math.abs(win)
+  const bigWin = abs > (bb + ante)
   const winIndicator = (
       win < 0 ? '-'
     : win > 0 ? '+'
@@ -19,9 +28,12 @@ function renderWin(win, bb, ante, decimals) {
     : ''
   )
 
+  const winInBB = abs / bb
+  const bbText = abs > 0 ? renderBigBlind(winInBB)  : ''
+
   return (
     <span className={'hha-pokerhand-win fr ' + className}>
-      {winIndicator}${Math.abs(win).toFixed(decimals)}
+      {winIndicator}{abs.toFixed(decimals)} {bbText}
     </span>
   )
 }
