@@ -11,7 +11,7 @@ class PokerHands extends Component {
   }
 
   componentDidUpdate() {
-    const { selectedIndex, autoScroll = true } = this.props
+    const { selectedIndex, autoScroll = false } = this.props
     if (!autoScroll) return
     const el = ReactDom.findDOMNode(this._pokerHands[selectedIndex])
     el.scrollIntoView({ block: 'start', behavior: 'smooth' })
