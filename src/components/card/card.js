@@ -15,9 +15,9 @@ class Card extends Component {
     const { isEmpty, value, suit, suitClass } = this._cardInfo()
 
     return (
-      <span className='hha-pokerhand-card'>
+      <span className={'hha-pokerhand-card ' + suitClass}>
         <span className='hha-pokerhand-card-value'>{value}</span>
-        {!isEmpty && <span className={suitClass}>{suit}</span>}
+        {!isEmpty && <span className='hha-pokerhand-card-value'>{suit}</span>}
       </span>
     )
   }
@@ -27,7 +27,7 @@ class Card extends Component {
     const isEmpty = (typeof card !== 'string' || !card.length)
     const value = isEmpty ? empty : card[0]
     const suit = isEmpty ? '' : renderSuit(card[1])
-    const suitClass = isEmpty ? 'hha-pokerhand-card-suit' : 'hha-pokerhand-card-suit ' + card[1]
+    const suitClass = isEmpty ? 'hha-pokerhand-card-suit' : 'hha-pokerhand-card-suit-' + card[1]
     return { isEmpty, value, suit, suitClass }
   }
 }

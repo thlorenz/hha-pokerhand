@@ -7,11 +7,15 @@
   margin-right: 2px;
   font-size: 15px;
 }
-.hha-pokerhand-card-suit.s,
-.hha-pokerhand-card-suit.c {
+.hha-pokerhand-card-suit-s {
   color: black;
 }
-.hha-pokerhand-card-suit.d,
-.hha-pokerhand-card-suit.h {
+.hha-pokerhand-card-suit-c {
+  color: green;
+}
+.hha-pokerhand-card-suit-d {
+  color: blue;
+}
+.hha-pokerhand-card-suit-h {
   color: red;
 }

@@ -52,7 +52,7 @@ class Head extends Component {
     return (
       <div className='hha-pokerhand-header'>
         <span className='hha-pokerhand-bb-sb-ante-max'>
-          ({bb}/{sb}) {ante && '(' + ante + ')'} [{maxseats}]
+          ({sb}/{bb}) {ante && '(' + ante + ')'} [{maxseats}]
         </span>
         {renderWin(win, bb, ante, decimals)}
         <span className='fr'>
