@@ -39,6 +39,7 @@ class Player extends Component {
     , bb, sb
     , cards
     , m_or_bb
+    , highlight
     } = this.props
 
     const card1    = cards && cards.card1
@@ -49,9 +50,10 @@ class Player extends Component {
     const turn     = renderStreet(this.props.turn, false)
     const river    = renderStreet(this.props.river, false)
     const showdown = renderStreet(this.props.showdown, false)
+    const className = highlight ? 'hha-pokerhand-player highlight' : 'hha-pokerhand-player'
 
     return (
-      <tr className='hha-pokerhand-player'>
+      <tr className={className}>
         <td>{pos}</td>
         <td>{name}</td>
         <td>{m_or_bb}</td>

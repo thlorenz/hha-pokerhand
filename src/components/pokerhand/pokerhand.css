@@ -59,6 +59,9 @@
   background: #ddd;
 }
 */
+.hha-pokerhand-player.highlight {
+  background: #d2ff52;
+}
 
 /* override changes done by CSS normalizers like tachyon.css */
 div.hha-pokerhand-hand,

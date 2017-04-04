@@ -18,7 +18,7 @@ class PokerHands extends Component {
   }
 
   _toHand(x, idx) {
-    const { injectHeader, injectFooter, selectedIndex } = this.props
+    const { injectHeader, injectFooter, selectedIndex, highlightPlayer } = this.props
     const className = selectedIndex === idx
       ? 'selected'
       : ''
@@ -32,6 +32,7 @@ class PokerHands extends Component {
         onselected={(hand, component) => this._onhandSelected(hand, component, idx)}
         injectHeader={injectHeader}
         injectFooter={injectFooter}
+        highlightPlayer={highlightPlayer}
         className={className}
       />
     )
