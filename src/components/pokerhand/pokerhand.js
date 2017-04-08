@@ -6,9 +6,10 @@ const Player = require('./player')
 
 /* eslint-disable camelcase */
 function toPlayer(x, idx) {
-  const { tourney, bb, highlightPlayer } = this
+  const { tourney, bb, highlightPlayer, hidePlayerCards } = this
   const m_or_bb = tourney ? x.m : (x.chips / bb).toFixed(0)
   const highlight = x.name === highlightPlayer
+
   return (
     <Player
       highlight={highlight}
@@ -17,6 +18,7 @@ function toPlayer(x, idx) {
       sb={x.sb}
       m_or_bb={m_or_bb}
       cards={x.cards}
+      hideCards={hidePlayerCards.has(x.name)}
       pos={x.pos}
       preflop={x.preflop}
       flop={x.flop}
@@ -66,14 +68,21 @@ function determineWin(players) {
 
 class PokerHand extends Component {
   render() {
-    const { hand, className = '', highlightPlayer = null } = this.props
+    const {
+        hand
+      , className = ''
+      , highlightPlayer = null
+      , hidePlayerCards = new Set()
+    } = this.props
+
     const info = hand.info || {}
     const table = hand.table || {}
     const win = determineWin(hand.players)
     const tourney = info.gametype === 'tournament'
     const bb = info.bb
     const decimals = bb < 1 ? 2 : 0
-    const players = (hand.players || []).map(toPlayer, { tourney, bb, highlightPlayer })
+    const players = (hand.players || [])
+      .map(toPlayer, { tourney, bb, highlightPlayer, hidePlayerCards })
 
     const header = this._injectHeader()
     const footer = this._injectFooter()

@@ -1,6 +1,7 @@
 const React = require('react')
 const { Component } = React
 const Card = require('../card/card')
+const CardBacks = require('../card/card-backs')
 
 function oneDecimal(x) {
   return (x || 0).toFixed(1)
@@ -37,13 +38,10 @@ class Player extends Component {
     const {
       name
     , bb, sb
-    , cards
     , m_or_bb
     , highlight
     } = this.props
 
-    const card1    = cards && cards.card1
-    const card2    = cards && cards.card2
     const pos      = this.props.pos && this.props.pos.toUpperCase()
     const preflop  = renderStreet(this.props.preflop, bb || sb)
     const flop     = renderStreet(this.props.flop, false)
@@ -57,16 +55,32 @@ class Player extends Component {
         <td>{pos}</td>
         <td>{name}</td>
         <td>{m_or_bb}</td>
-        <td>
-          <Card card={card1} empty='' />
-          <Card card={card2} empty='' />
-        </td>
+        {this._renderCards()}
         <td>{preflop}</td>
         <td>{flop}</td>
         <td>{turn}</td>
         <td>{river}</td>
         <td>{showdown}</td>
       </tr>
+    )
+  }
+
+  _renderCards() {
+    const {
+      cards
+    , hideCards = false
+    } = this.props
+
+    const hasCards = cards && cards.card1
+    if (hideCards && hasCards) return <td><CardBacks /></td>
+
+    const card1 = cards && cards.card1
+    const card2 = cards && cards.card2
+    return (
+      <td>
+        <Card card={card1} empty='' />
+        <Card card={card2} empty='' />
+      </td>
     )
   }
 }

@@ -19,3 +19,8 @@
 .hha-pokerhand-card-suit-h {
   color: red;
 }
+.hha-pokerhand-card-backs {
+  color: brown;
+  font-size: 16.55px;
+  padding: 8px;
+}

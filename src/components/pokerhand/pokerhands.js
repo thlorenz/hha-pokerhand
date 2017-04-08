@@ -5,7 +5,8 @@ const PokerHand = require('./pokerhand')
 
 class PokerHands extends Component {
   render() {
-    const { hands = [] } = this.props
+    const { hands = [], hidePlayerCards } = this.props
+    this._hidePlayerCards = hidePlayerCards
     this._pokerHands = new Array(hands.length)
     return <div>{(hands).map(this._toHand, this)}</div>
   }
@@ -18,7 +19,11 @@ class PokerHands extends Component {
   }
 
   _toHand(x, idx) {
-    const { injectHeader, injectFooter, selectedIndex, highlightPlayer } = this.props
+    const {
+        injectHeader
+      , injectFooter
+      , selectedIndex
+      , highlightPlayer } = this.props
     const className = selectedIndex === idx
       ? 'selected'
       : ''
@@ -33,6 +38,7 @@ class PokerHands extends Component {
         injectHeader={injectHeader}
         injectFooter={injectFooter}
         highlightPlayer={highlightPlayer}
+        hidePlayerCards={this._hidePlayerCards}
         className={className}
       />
     )
